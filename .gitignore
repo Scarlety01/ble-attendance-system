@@ -1,0 +1,56 @@
+backend/app/.env
+backend/app/venv/
+backend/app/__pycache__/
+backend/app/*.db
+backend/app/.pytest_cache/
+mobile_app/ble_attendance_app/build/
+mobile_app/ble_attendance_app/.dart_tool/
+mobile_app/ble_attendance_app/.flutter-plugins
+mobile_app/ble_attendance_app/.flutter-plugins-dependencies
+mobile_app/ble_attendance_app/android/local.properties
+dashboard/node_modules/
+dashboard/dist/
+.DS_Store
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+.env.local
+*.env
+
+# Docker / database
+postgres_data/
+pgdata/
+*.db
+*.sqlite3
+
+# Flutter
+build/
+.dart_tool/
+.packages
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# iOS / Android generated
+ios/Pods/
+android/.gradle/
+android/app/build/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets / tokens
+secrets/
+*.key
+*.pem
