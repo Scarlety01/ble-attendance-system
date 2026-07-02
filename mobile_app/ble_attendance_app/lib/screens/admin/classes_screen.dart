@@ -1238,7 +1238,7 @@ class _ClassStudentsSheetState extends State<_ClassStudentsSheet> {
                     onSubmitted: (_) => _saving ? null : _addStudent(),
                     decoration: InputDecoration(
                       labelText: 'Student ID',
-                      hintText: 'B221940049',
+                      hintText: 'STUDENT001',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),

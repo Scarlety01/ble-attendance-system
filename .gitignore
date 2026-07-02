@@ -54,3 +54,8 @@ android/app/build/
 secrets/
 *.key
 *.pem
+
+# JMeter generated files
+mobile_app/ble_attendance_app/jmeter_test/*.log
+mobile_app/ble_attendance_app/jmeter_test/*.jtl
+mobile_app/ble_attendance_app/jmeter_test/jmeter_report_*/

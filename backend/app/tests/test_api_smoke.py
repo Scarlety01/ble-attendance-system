@@ -55,9 +55,9 @@ def test_admin_login_and_users_endpoint():
 
 def test_ble_signal_quality_rejects_missing_samples():
     body = schemas.AttendanceRequest(
-        user_id="B221940049",
+        user_id="STUDENT001",
         session_id="SESSION002",
-        device_uuid="DEVICE_B221940049",
+        device_uuid="DEVICE_STUDENT001",
         beacon_uuid="BLE Advertiser",
         rssi=-60,
         distance=1.5,
