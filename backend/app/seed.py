@@ -38,15 +38,15 @@ def seed() -> None:
         if not org:
             org = models.Organization(
                 id="ORG001",
-                name="MUST",
-                description="Mongolian University of Science and Technology",
+                name="Demo University",
+                description="Demo organization for BLE attendance system",
             )
             db.add(org)
             db.commit()
             db.refresh(org)
         else:
-            org.name = "MUST"
-            org.description = "Mongolian University of Science and Technology"
+            org.name = "Demo University"
+            org.description = "Demo organization for BLE attendance system"
             db.commit()
 
         # ---------------------------
@@ -57,16 +57,16 @@ def seed() -> None:
             dept = models.Department(
                 id="DEP001",
                 organization_id="ORG001",
-                name="ICT School",
-                description="School of Information and Communication Technology",
+                name="Information Technology Department",
+                description="Demo department for IT projects",
             )
             db.add(dept)
             db.commit()
             db.refresh(dept)
         else:
             dept.organization_id = "ORG001"
-            dept.name = "ICT School"
-            dept.description = "School of Information and Communication Technology"
+            dept.name = "Information Technology Department"
+            dept.description = "Demo department for IT projects"
             db.commit()
 
         # ---------------------------
@@ -79,9 +79,9 @@ def seed() -> None:
                 organization_id="ORG001",
                 department_id="DEP001",
                 username="admin",
-                full_name="System Admin",
-                email="admin@must.edu.mn",
-                phone="99990000",
+                full_name="Demo Admin",
+                email="admin@example.com",
+                phone="99000001",
                 hashed_password=hash_password(admin_password),
                 role="admin",
                 is_active=True,
@@ -93,9 +93,9 @@ def seed() -> None:
             admin.organization_id = "ORG001"
             admin.department_id = "DEP001"
             admin.username = "admin"
-            admin.full_name = "System Admin"
-            admin.email = "admin@must.edu.mn"
-            admin.phone = "99990000"
+            admin.full_name = "Demo Admin"
+            admin.email = "admin@example.com"
+            admin.phone = "99000001"
             admin.hashed_password = hash_password(admin_password)
             admin.role = "admin"
             admin.is_active = True
@@ -108,9 +108,9 @@ def seed() -> None:
                 organization_id="ORG001",
                 department_id="DEP001",
                 username="teacher1",
-                full_name="D. Teacher",
-                email="teacher@must.edu.mn",
-                phone="99112233",
+                full_name="Demo Teacher",
+                email="teacher@example.com",
+                phone="99000002",
                 hashed_password=hash_password(teacher_password),
                 role="teacher",
                 is_active=True,
@@ -122,24 +122,24 @@ def seed() -> None:
             teacher.organization_id = "ORG001"
             teacher.department_id = "DEP001"
             teacher.username = "teacher1"
-            teacher.full_name = "D. Teacher"
-            teacher.email = "teacher@must.edu.mn"
-            teacher.phone = "99112233"
+            teacher.full_name = "Demo Teacher"
+            teacher.email = "teacher@example.com"
+            teacher.phone = "99000002"
             teacher.hashed_password = hash_password(teacher_password)
             teacher.role = "teacher"
             teacher.is_active = True
             db.commit()
 
-        student = db.get(models.User, "B221940049")
+        student = db.get(models.User, "STUDENT001")
         if not student:
             student = models.User(
-                id="B221940049",
+                id="STUDENT001",
                 organization_id="ORG001",
                 department_id="DEP001",
-                username="b221940049",
-                full_name="Б.Мөнхтуяа",
-                email="b221940049@must.edu.mn",
-                phone="99110011",
+                username="student001",
+                full_name="Demo Student",
+                email="student@example.com",
+                phone="99000003",
                 hashed_password=hash_password(student_password),
                 role="student",
                 is_active=True,
@@ -150,10 +150,10 @@ def seed() -> None:
         else:
             student.organization_id = "ORG001"
             student.department_id = "DEP001"
-            student.username = "b221940049"
-            student.full_name = "Б.Мөнхтуяа"
-            student.email = "b221940049@must.edu.mn"
-            student.phone = "99110011"
+            student.username = "student001"
+            student.full_name = "Demo Student"
+            student.email = "student@example.com"
+            student.phone = "99000003"
             student.hashed_password = hash_password(student_password)
             student.role = "student"
             student.is_active = True
@@ -324,12 +324,12 @@ def seed() -> None:
         # ---------------------------
         # DEVICES
         # ---------------------------
-        student_device = db.query(models.Device).filter_by(uuid="DEVICE_B221940049").first()
+        student_device = db.query(models.Device).filter_by(uuid="DEVICE_STUDENT001").first()
         if not student_device:
             student_device = models.Device(
-                user_id="B221940049",
-                uuid="DEVICE_B221940049",
-                name="Munkhtuya iPhone",
+                user_id="STUDENT001",
+                uuid="DEVICE_STUDENT001",
+                name="Student Demo Phone",
                 platform="iOS",
                 device_type="phone",
                 is_registered=True,
@@ -338,8 +338,8 @@ def seed() -> None:
             db.add(student_device)
             db.commit()
         else:
-            student_device.user_id = "B221940049"
-            student_device.name = "Munkhtuya iPhone"
+            student_device.user_id = "STUDENT001"
+            student_device.name = "Student Demo Phone"
             student_device.platform = "iOS"
             student_device.device_type = "phone"
             student_device.is_registered = True
@@ -584,7 +584,7 @@ def seed() -> None:
                 db.query(models.ClassStudent)
                 .filter(
                     models.ClassStudent.class_or_shift_id == class_id,
-                    models.ClassStudent.user_id == "B221940049",
+                    models.ClassStudent.user_id == "STUDENT001",
                 )
                 .first()
             )
@@ -593,7 +593,7 @@ def seed() -> None:
                     models.ClassStudent(
                         organization_id="ORG001",
                         class_or_shift_id=class_id,
-                        user_id="B221940049",
+                        user_id="STUDENT001",
                     )
                 )
                 db.commit()

@@ -15,7 +15,7 @@ class Settings(BaseSettings):
         "http://192.168.10.15:5173"
     )
 
-    database_url: str = "postgresql://postgres:1234@db:5432/attendance"
+    database_url: str = ""
     redis_url: str = "redis://redis:6379/0"
     auto_create_tables: bool = False
 
